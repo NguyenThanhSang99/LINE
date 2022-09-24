@@ -1,4 +1,3 @@
-import argparse
 from utils import *
 from line import Line
 from tqdm import trange
@@ -8,6 +7,7 @@ import pickle
 
 
 def main():
+    # Define dimension, batch_size, learning_rate, epochs, etc. for LINE model
     dimension = 5
     graph_path = "data/data.edgelist"
     batch_size = 10
@@ -35,7 +35,7 @@ def main():
 
     print("\nTraining data...")
     for epoch in range(epochs):
-        print("Epoch {}".format(epoch))
+        print("Epoch - {}".format(epoch))
         for b in trange(batchrange):
             sampled_edges = edges_alias_sampler.sample_n(batch_size)
             batch = list(makeData(sampled_edges, neg_sample_size, weights, node_degrees,
@@ -54,7 +54,7 @@ def main():
             lossdata["it"].append(it)
             it += 1
 
-    print("\nDone training, saving model to {}".format(model_save_path))
+    print("\Completed training model, saving it to {}".format(model_save_path))
     torch.save(line, "{}".format(model_save_path))
 
 
