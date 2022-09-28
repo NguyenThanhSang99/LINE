@@ -6,10 +6,6 @@ from tqdm import tqdm
 
 
 class VoseAlias(object):
-    """
-    Adding a few modifs to https://github.com/asmith26/Vose-Alias-Method
-    """
-
     def __init__(self, dist):
         """
         (VoseAlias, dict) -> NoneType
